@@ -1,0 +1,34 @@
+﻿@inherits ModuleControlBase
+@inject IStringLocalizer<OpenEugene.Module.Provider.Edit> Localizer
+@namespace OpenEugene.Module.Client.Controls
+@using OpenEugene.Module.LittleHelpBook.ViewModels
+
+@if (Attributes != null)
+{
+    <MudCard>
+        <MudCardContent>
+            @foreach(var item in Attributes){
+                @if (OnDelete.HasDelegate)
+                {
+                    <MudChip T="string" Color="Color.Primary" OnClose="@(()=>Closed(item))">@item.Attribute.Name</MudChip>
+                }
+                else
+                {
+                    <MudChip T="string" Color="Color.Primary">@item.Attribute.Name</MudChip>
+                }
+            }
+        </MudCardContent>
+        <MudCardActions>
+
+        </MudCardActions>
+    </MudCard>
+}
+@code {
+    [Parameter] public List<ProviderAttributeViewModel> Attributes { get; set; }
+    [Parameter] public EventCallback<ProviderAttributeViewModel> OnDelete { get; set; }
+    
+    async Task Closed(ProviderAttributeViewModel item)
+    {
+        await OnDelete.InvokeAsync(item);
+    }
+}

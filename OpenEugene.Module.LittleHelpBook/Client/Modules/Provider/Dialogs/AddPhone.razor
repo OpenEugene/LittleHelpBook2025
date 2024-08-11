@@ -1,0 +1,36 @@
+@using OpenEugene.Module.LittleHelpBook.Services
+
+@namespace OpenEugene.Module.Provider
+@inject PhoneNumberService PhoneNumberService
+@inject IStringLocalizer<OpenEugene.Module.Provider.Index> Localizer
+@inject NavigationManager NavigationManager
+
+<MudDialog>
+    <DialogContent>
+        <PhoneNumber Phone="@_phone"></PhoneNumber>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="@(()=> AddPhoneNumber())">@Localizer["Save"]</MudButton>
+        <MudButton Color="Color.Secondary" OnClick="@(()=> Back())">@Localizer["Cancel"]</MudButton>
+    </DialogActions>
+</MudDialog>
+
+ @code {
+
+    private M.PhoneNumber _phone = new();
+
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter] public int Id { get; set; }
+
+    private void Back()
+    {
+        MudDialog.Cancel();
+    }
+
+    private async Task AddPhoneNumber()
+    {
+        _phone.ProviderId = Id;
+        await PhoneNumberService.AddPhoneNumberAsync(_phone);
+        MudDialog.Close();
+    }
+}

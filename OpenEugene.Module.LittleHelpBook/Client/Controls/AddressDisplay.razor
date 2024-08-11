@@ -1,0 +1,37 @@
+﻿@inherits ModuleControlBase
+@inject IStringLocalizer<OpenEugene.Module.Provider.Edit> Localizer
+@inject NavigationManager NavigationManager
+@namespace OpenEugene.Module.Client.Controls
+
+@if (Addr != null)
+{
+    <MudCard>
+        <MudCardContent>
+            <MudText>@address</MudText>
+            @if(Addr.HasWheelchairAccess)
+            {
+                <MudIcon Icon="@MudBlazor.Icons.Material.Filled.AccessibleForward"/>
+            }
+            @if (Addr.HasLanguageSupport)
+            {
+                <MudIcon Icon="@MudBlazor.Icons.Material.Filled.SpatialAudioOff" />
+            }
+        </MudCardContent>
+    </MudCard>
+}
+@code {
+    [Parameter] public M.Address Addr { get; set; }
+ 
+    private string address = null;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        if (Addr != null)
+        {
+            address = Addr.Address1 + Environment.NewLine + Addr.City + " " + Addr.State + " " + Addr.PostalCode;
+        }
+    }
+
+}

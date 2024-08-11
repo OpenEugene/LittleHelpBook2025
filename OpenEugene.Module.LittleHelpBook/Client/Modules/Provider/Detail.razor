@@ -1,0 +1,100 @@
+@namespace OpenEugene.Module.Provider
+@using Microsoft.AspNetCore.Components.Forms
+@using OpenEugene.Module.LittleHelpBook.Services
+@inherits ModuleBase
+@inject ProviderService ProviderService
+@inject AddressService AddressService
+@inject PhoneNumberService PhoneNumberService 
+@inject NavigationManager NavigationManager
+@inject IStringLocalizer<Detail> Localizer
+@inject IDialogService DialogService
+
+
+@if (_model != null) {
+   
+    <MudCard>
+        <MudCardHeader>
+            <MudText Typo="Typo.h6">@Localizer["Title"]</MudText>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudField Label="@Localizer["Name"]">
+                <MudText>@_model.Name</MudText>
+            </MudField>
+            <MudField Label="@Localizer["Description"]">
+                <MudText>@_model.Description</MudText>
+            </MudField> 
+            <MudField Label="@Localizer["Web Address"]">
+                <MudText>@_model.WebAddress</MudText>
+            </MudField>
+            <MudField Label="@Localizer["Email Address"]">
+                <MudText>@_model.EmailAddress</MudText>
+            </MudField>
+            <MudField Label="@Localizer["Hours of Operation"]">
+                <MudText>@_model.HoursOfOperation</MudText>
+            </MudField>
+               
+            <MudField Label="Services" Variant="Variant.Outlined">
+                @if (_model.ProviderAttributes.Any()) {
+                    <ProviderAttribute Attributes="@_model.ProviderAttributes" > </ProviderAttribute>
+                }
+            </MudField>
+            <MudField Label="Phone Number(s)" Variant="Variant.Outlined">
+                @if (_orderedPhoneNumbers.Any()) {
+                    @foreach (var phone in _orderedPhoneNumbers) {
+                        <PhoneNumberDisplay Phone="@phone" ></PhoneNumberDisplay>
+                    }
+                }
+            </MudField>
+            <MudField Label="Address(es)" Variant="Variant.Outlined">
+
+                @if (_orderedAddresses.Any()) {
+                    @foreach (var addr in _orderedAddresses) {
+                        <AddressDisplay Addr="@addr" ></AddressDisplay>
+                    }
+                }
+            </MudField>
+                
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton Color="Color.Secondary" OnClick="Back">@Localizer["Back"]</MudButton>
+        </MudCardActions>
+    </MudCard>
+        
+}
+
+@code {
+    
+    public override string Actions => "Detail";
+    public override string Title => "Provider Details";
+    public override bool UseAdminContainer => false;
+    private int _id;
+    private ProviderViewModel _model;
+
+    private List<M.PhoneNumber> _orderedPhoneNumbers;
+    private List<M.Address> _orderedAddresses;
+
+    MudMessageBox Mbox { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        try {
+            _id = int.Parse(PageState.QueryString["id"]);
+            await Refresh();
+        }
+        catch (Exception ex) {
+            await logger.LogError(ex, "Error Loading LHB {id} {message}", _id, ex.Message);
+            AddModuleMessage(Localizer["Message.LoadError"], MessageType.Error);
+        }
+    }
+
+    private async Task Refresh() {
+        _model = await ProviderService.GetProviderViewModelAsync(_id);
+        _orderedPhoneNumbers = _model.PhoneNumbers.OrderByDescending(p => p.IsActive).ToList();
+        _orderedAddresses = _model.Addresses.OrderByDescending(a => a.IsActive).ToList();
+    }
+
+    private void Back() { 
+        NavigationManager.NavigateTo(NavigateUrl()); 
+    }
+
+}

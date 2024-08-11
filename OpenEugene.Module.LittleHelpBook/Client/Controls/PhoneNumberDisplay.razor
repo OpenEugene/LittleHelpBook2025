@@ -1,0 +1,29 @@
+﻿@inherits ModuleControlBase
+@inject IStringLocalizer<OpenEugene.Module.Provider.Edit> Localizer
+@inject NavigationManager NavigationManager
+@namespace OpenEugene.Module.Client.Controls
+
+@if (Phone != null)
+{
+    <MudCard>
+        <MudCardContent>
+            <MudText>@phone</MudText>
+        </MudCardContent>
+    </MudCard>
+}
+@code {
+    [Parameter] public M.PhoneNumber Phone { get; set; }
+    
+    private string phone = null;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        if (Phone != null)
+        {
+            phone = Phone.AreaCode + Phone.Number + Phone.Extension;
+        }
+    }
+
+}
