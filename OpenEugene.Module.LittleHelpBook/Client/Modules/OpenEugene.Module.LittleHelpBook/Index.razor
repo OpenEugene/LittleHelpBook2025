@@ -1,0 +1,58 @@
+@namespace OpenEugene.Module.LittleHelpBook
+@inherits ModuleBase
+@* Required *@
+<MudThemeProvider IsDarkMode=true />
+<MudPopoverProvider />
+
+@* Needed for dialogs 
+<MudDialogProvider />*@
+
+@* Needed for snackbars 
+<MudSnackbarProvider />*@
+
+@if (_LittleHelpBooks == null)
+{
+<p><em>Loading...</em></p>
+}
+else
+{
+<ActionLink Action="Add" Security="SecurityAccessLevel.Edit" Text="Add LittleHelpBook" ResourceKey="Add" />
+<br />
+<br />
+    @if (_LittleHelpBooks.Any())
+    {
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+            <MudText Class="mb-4">Enter data for the LittleHelpBook module</MudText>
+            <MudTable Items="@_LittleHelpBooks">
+                <ColGroup>
+                    <col style="width: 10px;" />
+                    <col style="width: 10px;" />
+                    <col />
+                </ColGroup>
+                <HeaderContent>
+                    <MudTh>&nbsp;</MudTh>
+                    <MudTh>&nbsp;</MudTh>
+                    <MudTh>@Localizer["Name"]</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd Class="pa-2"><ActionLink Action="Edit" Parameters="@($"id=" + context.LittleHelpBookId.ToString())" ResourceKey="Edit" /></MudTd>
+                    <MudTd Class="pa-2"><ActionDialog Header="Delete LittleHelpBook" Message="Are You Sure You Wish To Delete This LittleHelpBook?" Action="Delete" Security="SecurityAccessLevel.Edit" Class="btn btn-danger" OnClick="@(async () => await Delete(context))" ResourceKey="Delete" /></MudTd>
+                    <MudTd DataLabel="Nr">@context.Name</MudTd>
+                </RowTemplate>
+                <PagerContent>
+                    <MudPaper Outlined="true" Class="border-dashed">
+                        <MudStack Justify="Justify.SpaceBetween" Row="true">
+                            <MudPaper Class="pa-3"><ActionLink Action="Add" Security="SecurityAccessLevel.Edit" Text="Add LittleHelpBook" ResourceKey="Add" /></MudPaper>
+                            <MudPaper Class="pa-3"><MudTablePager PageSizeOptions="new int[]{10, 25, 50, 100}" /></MudPaper>
+                        </MudStack>
+                    </MudPaper>
+                </PagerContent>
+            </MudTable>
+        </MudContainer>
+    }
+    else
+    {
+        <MudPaper Class="pa-3"><ActionLink Action="Add" Security="SecurityAccessLevel.Edit" Text="Add LittleHelpBook" ResourceKey="Add" /></MudPaper>
+        <p>@Localizer["Message.DisplayNone"]</p>
+    }
+}
