@@ -29,6 +29,6 @@
     <file src="..\Server\wwwroot\**\*.*" target="wwwroot" /> 
     <file src="icon.png" target="" />
     <!--MudBlazor-->
-    <file src="..\Server\bin\Release\net8.0\MudBlazor.dll" target="lib\net8.0" />
+    <file src="..\Client\bin\Release\net8.0\MudBlazor.dll" target="lib\net8.0" />
   </files>
 </package>
