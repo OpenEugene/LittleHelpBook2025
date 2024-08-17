@@ -6,13 +6,16 @@
 @inject NavigationManager NavigationManager
 @inject IStringLocalizer<Index> Loc
 
+<MudPopoverProvider />
+<MudDialogProvider />
+
 @if (_list == null)
 {
-    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+  <MudProgressCircular Color="Color.Default" Indeterminate="true" />
 }
 else
 {
-    <MudDataGrid 
+  <MudDataGrid 
     Items="@_list" 
     T="M.Provider" 
     RowClick="@Selected"
@@ -68,7 +71,6 @@ else
         try
         {
             _list = await ProviderService.GetProvidersAsync();
-            StateHasChanged();
         }
         catch (Exception ex)
         {
