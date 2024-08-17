@@ -14,13 +14,13 @@ namespace OpenEugene.Module.LittleHelpBook.Services
 {
     public class ServerLittleHelpBookService : ILittleHelpBookService, ITransientService
     {
-        private readonly ILittleHelpBookRepository _LittleHelpBookRepository;
+        private readonly LittleHelpBookRepository _LittleHelpBookRepository;
         private readonly IUserPermissions _userPermissions;
         private readonly ILogManager _logger;
         private readonly IHttpContextAccessor _accessor;
         private readonly Alias _alias;
 
-        public ServerLittleHelpBookService(ILittleHelpBookRepository LittleHelpBookRepository, IUserPermissions userPermissions, ITenantManager tenantManager, ILogManager logger, IHttpContextAccessor accessor)
+        public ServerLittleHelpBookService(LittleHelpBookRepository LittleHelpBookRepository, IUserPermissions userPermissions, ITenantManager tenantManager, ILogManager logger, IHttpContextAccessor accessor)
         {
             _LittleHelpBookRepository = LittleHelpBookRepository;
             _userPermissions = userPermissions;

@@ -3,16 +3,20 @@ using System.Linq;
 using System.Collections.Generic;
 using Oqtane.Modules;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
 
 namespace OpenEugene.Module.LittleHelpBook.Repository
 {
-    public class LittleHelpBookRepository : ILittleHelpBookRepository, ITransientService
+    public partial class LittleHelpBookRepository : ITransientService
     {
         private readonly IDbContextFactory<LittleHelpBookContext> _factory;
+        private readonly LittleHelpBookContext _db;
 
-        public LittleHelpBookRepository(IDbContextFactory<LittleHelpBookContext> factory)
+        public LittleHelpBookRepository(IDbContextFactory<LittleHelpBookContext> factory, 
+            LittleHelpBookContext context)
         {
             _factory = factory;
+            _db = context;
         }
 
         public IEnumerable<Models.LittleHelpBook> GetLittleHelpBooks(int ModuleId)

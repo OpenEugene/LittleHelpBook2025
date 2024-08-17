@@ -9,7 +9,7 @@ using Oqtane.Models;
 using Oqtane.Shared;
 
 
-namespace OpenEugene.Module.LittleHelpBook
+namespace OpenEugene.Module.Template
 { 
     public partial class Settings: ModuleBase
     {

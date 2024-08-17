@@ -7,7 +7,7 @@
     <Product>OpenEugene.Module.LittleHelpBook</Product>
     <Authors>OpenEugene</Authors>
     <Company>OpenEugene</Company>
-    <Description>digital edition of the little help book</Description>
+    <Description>the little help book</Description>
     <Copyright>OpenEugene</Copyright>
     <AssemblyName>OpenEugene.Module.LittleHelpBook.Server.Oqtane</AssemblyName>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -23,6 +23,7 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.7" />
+		<PackageReference Include="MudBlazor" Version="7.6.0" />
 	</ItemGroup>
 
   <ItemGroup>

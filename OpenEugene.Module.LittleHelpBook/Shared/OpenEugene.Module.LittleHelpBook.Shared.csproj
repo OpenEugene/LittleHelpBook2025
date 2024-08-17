@@ -6,7 +6,7 @@
     <Product>OpenEugene.LittleHelpBook</Product>
     <Authors>OpenEugene</Authors>
     <Company>OpenEugene</Company>
-    <Description>digital edition of the little help book</Description>
+    <Description>the little help book</Description>
     <Copyright>OpenEugene</Copyright>
     <AssemblyName>OpenEugene.Module.LittleHelpBook.Shared.Oqtane</AssemblyName>
   </PropertyGroup>

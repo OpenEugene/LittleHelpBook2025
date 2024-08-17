@@ -1,15 +1,7 @@
-@namespace OpenEugene.Module.LittleHelpBook
+@namespace OpenEugene.Module.Template
 @inherits ModuleBase
-@* Required *@
+
 <MudThemeProvider IsDarkMode=true />
-<MudPopoverProvider />
-
-@* Needed for dialogs 
-<MudDialogProvider />*@
-
-@* Needed for snackbars 
-<MudSnackbarProvider />*@
-
 @if (_LittleHelpBooks == null)
 {
 <p><em>Loading...</em></p>

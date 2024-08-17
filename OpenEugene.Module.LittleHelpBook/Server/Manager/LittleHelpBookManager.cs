@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -6,10 +8,8 @@ using Oqtane.Models;
 using Oqtane.Infrastructure;
 using Oqtane.Enums;
 using Oqtane.Repository;
-using OpenEugene.Module.LittleHelpBook.Repository;
 using Oqtane.Interfaces;
-using System;
-using System.Threading.Tasks;
+using OpenEugene.Module.LittleHelpBook.Repository;
 
 namespace OpenEugene.Module.LittleHelpBook.Manager
 {
@@ -61,8 +61,8 @@ namespace OpenEugene.Module.LittleHelpBook.Manager
             }
         }
 
-       public Task<List<SearchContent>> GetSearchContentsAsync(PageModule pageModule, DateTime lastIndexedOn)
-       {
+        public Task<List<SearchContent>> GetSearchContentsAsync(PageModule pageModule, DateTime lastIndexedOn)
+        {
             var searchContentList = new List<SearchContent>();
 
             foreach (var LittleHelpBook in _LittleHelpBookRepository.GetLittleHelpBooks(pageModule.ModuleId))
@@ -83,5 +83,5 @@ namespace OpenEugene.Module.LittleHelpBook.Manager
 
             return Task.FromResult(searchContentList);
         }
-}
+    }
 }

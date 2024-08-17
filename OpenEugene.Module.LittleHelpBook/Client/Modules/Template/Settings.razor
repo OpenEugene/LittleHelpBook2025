@@ -1,16 +1,7 @@
-@namespace OpenEugene.Module.LittleHelpBook
+@namespace OpenEugene.Module.Template
 @inherits ModuleBase
 
-@* Required *@
 <MudThemeProvider IsDarkMode=true />
-<MudPopoverProvider />
-
-@* Needed for dialogs
-<MudDialogProvider />*@
-
-@* Needed for snackbars
-<MudSnackbarProvider />*@
-
 <div class="container">
     <div class="row mb-1 align-items-center">
         <Label Class="col-sm-3" For="value" HelpText="Enter a value" ResourceKey="SettingName" ResourceType="@resourceType">Name: </Label>

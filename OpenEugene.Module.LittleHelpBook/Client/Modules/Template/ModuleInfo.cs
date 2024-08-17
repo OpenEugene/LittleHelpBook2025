@@ -1,14 +1,14 @@
 using Oqtane.Models;
 using Oqtane.Modules;
 
-namespace OpenEugene.Module.LittleHelpBook
+namespace OpenEugene.Module.Template
 {
     public class ModuleInfo : IModule
     {
         public ModuleDefinition ModuleDefinition => new ModuleDefinition
         {
-            Name = "LittleHelpBook",
-            Description = "digital edition of the little help book",
+            Name = "Template",
+            Description = "Template",
             Version = "1.0.0",
             ServerManagerType = "OpenEugene.Module.LittleHelpBook.Manager.LittleHelpBookManager, OpenEugene.Module.LittleHelpBook.Server.Oqtane",
             ReleaseVersions = "1.0.0",

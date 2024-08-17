@@ -8,11 +8,10 @@ using MudBlazor;
 using Oqtane.Models;
 using Oqtane.Modules;
 using Oqtane.Shared;
-
 using OpenEugene.Module.LittleHelpBook.Services;
+using Models = OpenEugene.Module.LittleHelpBook.Models;
 
-
-namespace OpenEugene.Module.LittleHelpBook
+namespace OpenEugene.Module.Template
 {
     public partial class Edit: ModuleBase
     {

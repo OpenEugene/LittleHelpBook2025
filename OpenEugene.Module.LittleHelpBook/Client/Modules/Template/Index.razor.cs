@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using Oqtane.Models;
 using Oqtane.Modules;
 using Oqtane.Shared;
+using Models = OpenEugene.Module.LittleHelpBook.Models;
 
 using OpenEugene.Module.LittleHelpBook.Services;
 
-namespace OpenEugene.Module.LittleHelpBook;
+namespace OpenEugene.Module.Template;
 
 public partial class Index : ModuleBase
 {

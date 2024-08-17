@@ -5,7 +5,7 @@
 		<Version>1.0.0</Version>
 		<Authors>OpenEugene</Authors>
 		<Company>OpenEugene</Company>
-		<Description>digital edition of the little help book</Description>
+		<Description>the little help book</Description>
 		<Product>OpenEugene.LittleHelpBook</Product>
 		<Copyright>OpenEugene</Copyright>
 		<AssemblyName>OpenEugene.Module.LittleHelpBook.Client.Oqtane</AssemblyName>
@@ -16,6 +16,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.7" />
+		<PackageReference Include="MudBlazor" Version="7.6.0" />
 		<PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.2.0" />
@@ -26,9 +27,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="MudBlazor">
-			<HintPath>..\..\oqtane.framework\Oqtane.Server\bin\Debug\net8.0\MudBlazor.dll</HintPath>
-		</Reference>
 		<PackageReference Include="Oqtane.Client" Version="5.2.0" />
 		<PackageReference Include="Oqtane.Shared" Version="5.2.0" />
 	</ItemGroup>
