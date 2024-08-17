@@ -6,7 +6,13 @@
 @inject NavigationManager NavigationManager
 @inject IStringLocalizer<Index> Loc
 
-<MudDataGrid 
+@if (_list == null)
+{
+    <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+else
+{
+    <MudDataGrid 
     Items="@_list" 
     T="M.Provider" 
     RowClick="@Selected"
@@ -49,11 +55,11 @@
         <MudDataGridPager T="M.Provider" />
     </PagerContent>
 </MudDataGrid>
-
+}
     
 @code {
 
-    List<M.Provider> _list;
+    List<M.Provider> _list = new();
     private string _searchString;
 
 
@@ -62,6 +68,7 @@
         try
         {
             _list = await ProviderService.GetProvidersAsync();
+            StateHasChanged();
         }
         catch (Exception ex)
         {

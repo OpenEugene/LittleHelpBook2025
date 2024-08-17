@@ -5,16 +5,10 @@
 @using Oqtane.UI
 @inherits ThemeBase
 
-@* Required *@
 <MudThemeProvider IsDarkMode=true />
 <MudPopoverProvider />
-
-@* Needed for dialogs 
-<MudDialogProvider />*@
-
-@* Needed for snackbars 
-<MudSnackbarProvider />*@
-
+<MudDialogProvider />
+<MudSnackbarProvider />
 
 <main role="main">
     <nav class="navbar navbar-dark bg-primary fixed-top">

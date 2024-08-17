@@ -11,11 +11,11 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
     public partial class LittleHelpBookRepository
     {
 
-        public IEnumerable<Provider> GetProviders()
+        public List<Provider> GetProviders()
         {
             using var db = _factory.CreateDbContext();
             var list = db.Provider.AsNoTracking();
-            return list;
+            return list.ToList(); // need to realize the resuls before the db connection closes
         }
 
         public Provider GetProvider(int id)
