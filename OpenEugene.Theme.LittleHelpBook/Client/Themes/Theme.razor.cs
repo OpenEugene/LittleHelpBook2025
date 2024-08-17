@@ -16,6 +16,13 @@ namespace OpenEugene.Theme.LittleHelpBook
         private bool _login = true;
         private bool _register = true;
 
+        bool _drawerOpen = true;
+
+        void DrawerToggle()
+        {
+            _drawerOpen = !_drawerOpen;
+        }
+
         protected override void OnParametersSet()
         {
             try
