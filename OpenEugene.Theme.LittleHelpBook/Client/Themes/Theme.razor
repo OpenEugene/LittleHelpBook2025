@@ -5,7 +5,7 @@
 @using Oqtane.UI
 @inherits ThemeBase
 
-<MudThemeProvider IsDarkMode=true />
+<MudThemeProvider @ref=_mudThemeProvider @bind-IsDarkMode=_darkMode Theme="LittleHelpMudTheme" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -15,12 +15,22 @@
         <MudIconButton Icon="@MudBlazor.Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudText Typo="Typo.h5">Little Help Book</MudText>
         <MudSpacer />
-        <div class="controls-group"><UserProfile /> <Login /> <ControlPanel /></div>
+        <div class="controls-group">
+            <UserProfile />
+            <Login />
+            <ControlPanel />
+            
+        </div>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <MudNavLink Icon="@MudBlazor.Icons.Material.Outlined.Home" Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
         <MudNavLink Icon="@MudBlazor.Icons.Material.Outlined.VolunteerActivism" Href="/providers">Providers</MudNavLink>
         <MudNavLink Icon="@MudBlazor.Icons.Material.Outlined.QuestionMark" Href="/faq">Faq</MudNavLink>
+        <MudSpacer/>
+        <MudToggleIconButton @bind-Toggled="@_darkMode"
+                             Color="Color.Default" ToggledColor="Color.Default"
+                             Icon="@MudBlazor.Icons.Material.Filled.DarkMode"
+                             ToggledIcon="@MudBlazor.Icons.Material.Filled.WbSunny" />
     </MudDrawer>
     <MudMainContent>
         <MudContainer id="content">

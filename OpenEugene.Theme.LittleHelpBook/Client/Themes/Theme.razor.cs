@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Components;
+using MudBlazor;
 using Oqtane.Services;
 using Oqtane.Shared;
 using Oqtane.Themes;
+using System.Threading.Tasks;
 
 namespace OpenEugene.Theme.LittleHelpBook
 {
@@ -17,6 +19,9 @@ namespace OpenEugene.Theme.LittleHelpBook
         private bool _register = true;
 
         bool _drawerOpen = true;
+        bool _darkMode = true;
+
+        private MudThemeProvider _mudThemeProvider;
 
         void DrawerToggle()
         {
@@ -36,5 +41,21 @@ namespace OpenEugene.Theme.LittleHelpBook
                 // error loading theme settings
             }
         }
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                _darkMode = await _mudThemeProvider.GetSystemPreference();
+                StateHasChanged();
+            }
+        }
+
+        MudTheme LittleHelpMudTheme = new MudTheme()
+        {
+            PaletteLight = new PaletteLight() {
+            },
+            PaletteDark = new PaletteDark() {
+            },
+        };
     }
 }

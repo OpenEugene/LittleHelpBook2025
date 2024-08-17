@@ -1,3 +1,7 @@
+/* little help book overrides */
+:root {
+    --bs-heading-color: var(--mud-palette-text-primary);
+}
 /* Oqtane Styles */
 
 .div main {

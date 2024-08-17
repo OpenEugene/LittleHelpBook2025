@@ -23,7 +23,7 @@ else
     Filterable="true" 
     QuickFilter="@_quickFilter">
     <ToolBarContent>
-        <MudText Typo="Typo.h6">@Loc["Title"]</MudText>
+        <MudText Typo="Typo.h5" Color="Color.Default">@Loc["Title"]</MudText>
         <MudSpacer />
         <MudIconButton Title="New" Icon="@MudBlazor.Icons.Material.Filled.AddCard" Color="Color.Default" OnClick="Add" />
         <MudTextField @bind-Value="_searchString" Placeholder="Search" Adornment="Adornment.Start" Immediate="true"
@@ -62,7 +62,7 @@ else
     
 @code {
 
-    List<M.Provider> _list = new();
+    List<M.Provider> _list = null;
     private string _searchString;
 
 

@@ -1,13 +1,12 @@
 ﻿@inherits ModuleControlBase
 @inject IStringLocalizer<OpenEugene.Module.Provider.Edit> Localizer
 @inject NavigationManager NavigationManager
-@namespace OpenEugene.Module.Client.Controls
 
 @if (Addr != null)
 {
     <MudCard>
         <MudCardContent>
-            <MudText>@address</MudText>
+            <MudText Color="Color.Primary">@address</MudText>
             @if(Addr.HasWheelchairAccess)
             {
                 <MudIcon Icon="@MudBlazor.Icons.Material.Filled.AccessibleForward"/>

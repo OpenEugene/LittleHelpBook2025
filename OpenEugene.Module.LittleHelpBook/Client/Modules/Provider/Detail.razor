@@ -9,28 +9,31 @@
 @inject IStringLocalizer<Detail> Localizer
 @inject IDialogService DialogService
 
-
-@if (_model != null) {
-   
+@if (_model == null)
+{
+  <MudProgressCircular Color="Color.Default" Indeterminate="true" />
+}
+else
+{
     <MudCard>
         <MudCardHeader>
             <MudText Typo="Typo.h6">@Localizer["Title"]</MudText>
         </MudCardHeader>
         <MudCardContent>
             <MudField Label="@Localizer["Name"]">
-                <MudText>@_model.Name</MudText>
+                <MudText Color="Color.Primary">@_model.Name</MudText>
             </MudField>
             <MudField Label="@Localizer["Description"]">
-                <MudText>@_model.Description</MudText>
+                <MudText Color="Color.Primary">@_model.Description</MudText>
             </MudField> 
             <MudField Label="@Localizer["Web Address"]">
-                <MudText>@_model.WebAddress</MudText>
+                <MudText Color="Color.Primary">@_model.WebAddress</MudText>
             </MudField>
             <MudField Label="@Localizer["Email Address"]">
-                <MudText>@_model.EmailAddress</MudText>
+                <MudText Color="Color.Primary">@_model.EmailAddress</MudText>
             </MudField>
             <MudField Label="@Localizer["Hours of Operation"]">
-                <MudText>@_model.HoursOfOperation</MudText>
+                <MudText Color="Color.Primary">@_model.HoursOfOperation</MudText>
             </MudField>
                
             <MudField Label="Services" Variant="Variant.Outlined">
