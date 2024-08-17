@@ -13,7 +13,8 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
     {
 
         public IEnumerable<Attribute> GetAttributes() {
-            var list = from a in _db.Attribute.AsNoTracking()
+            using var db = _factory.CreateDbContext();
+            var list = from a in db.Attribute.AsNoTracking()
                        select a;
             return list;
         }

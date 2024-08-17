@@ -11,8 +11,10 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
     {
 
         public List<Address> GetAddressesByProviderId(int providerId, bool tracking = false) {
+
+            using var db = _factory.CreateDbContext();
             // get a list of addresses for a provider
-            var addrs = from a in _db.Address
+            var addrs = from a in db.Address
                         where a.ProviderId == providerId
                         select a;
             return addrs.ToList();
@@ -23,27 +25,31 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
         }
 
         public Address GetAddress(int addressId, bool tracking) {
-            return tracking ? _db.Address.Find(addressId) : _db.Address.AsNoTracking().FirstOrDefault(item => item.AddressId == addressId);
+            using var db = _factory.CreateDbContext();
+            return tracking ? db.Address.Find(addressId) : db.Address.AsNoTracking().FirstOrDefault(item => item.AddressId == addressId);
         }
 
         public Address AddAddress(Address item) {
-            _db.Address.Add(item);
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext();
+            db.Address.Add(item);
+            db.SaveChanges();
             return item;
         }
 
         public Address UpdateAddress(Address addressId) {
-            _db.Entry(addressId).State = EntityState.Modified;
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext();
+            db.Entry(addressId).State = EntityState.Modified;
+            db.SaveChanges();
             return addressId;
         }
 
         public void DeleteAddress(int addressId) {
-            var item = _db.Address.Find(addressId);
+            using var db = _factory.CreateDbContext();
+            var item = db.Address.Find(addressId);
 
             if (item == null) return;
-            _db.Address.Remove(item);
-            _db.SaveChanges();
+            db.Address.Remove(item);
+            db.SaveChanges();
         }
     }
 }

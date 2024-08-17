@@ -17,7 +17,7 @@ public partial class Index : ModuleBase
 {
     List<Models.LittleHelpBook> _LittleHelpBooks;
 		
-    [Inject] public ILittleHelpBookService LittleHelpBookService { get; set; }
+    [Inject] public  LittleHelpBookService LittleHelpBookService { get; set; }
     [Inject] public  NavigationManager NavigationManager { get; set; }
     [Inject] public  IStringLocalizer<Index> Localizer { get; set; }
 	

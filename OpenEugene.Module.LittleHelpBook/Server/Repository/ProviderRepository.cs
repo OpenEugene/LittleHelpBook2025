@@ -13,7 +13,8 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
 
         public IEnumerable<Provider> GetProviders()
         {
-            var list = _db.Provider.AsNoTracking();
+            using var db = _factory.CreateDbContext();
+            var list = db.Provider.AsNoTracking();
             return list;
         }
 
@@ -23,7 +24,9 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
         }
 
         public Provider GetProvider(int id, bool tracking) {
-            return tracking ? _db.Provider.Find(id) : _db.Provider.AsNoTracking().FirstOrDefault(item => item.ProviderId == id);
+            using var db = _factory.CreateDbContext();
+            return tracking ? db.Provider.Find(id) 
+                : db.Provider.AsNoTracking().FirstOrDefault(item => item.ProviderId == id);
         }
 
         public ProviderViewModel GetProviderViewModel(int id) {
@@ -44,21 +47,24 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
 
         public Provider AddProvider(Provider item)
         {
-            _db.Provider.Add(item);
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext();
+            db.Provider.Add(item);
+            db.SaveChanges();
             return item;
         }
 
         public Provider UpdateProvider(Provider provider)
         {
-            _db.Entry(provider).State = EntityState.Modified;
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext();
+            db.Entry(provider).State = EntityState.Modified;
+            db.SaveChanges();
             return provider;
         }
         public ProviderViewModel UpdateProvider(ProviderViewModel providerVm)
         {
+            using var db = _factory.CreateDbContext();
             // update provider
-            _db.Entry<Provider>(providerVm as Provider).State = EntityState.Modified;
+            db.Entry<Provider>(providerVm as Provider).State = EntityState.Modified;
 
             //addresses
             foreach(var address in providerVm.Addresses)
@@ -66,43 +72,44 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
                 if (address.AddressId == 0)
                 {
                     // add new address
-                    _db.Address.Add(address);
+                    db.Address.Add(address);
 
                     //I think we need to add a new ProviderAddress row too.
                 }
                 else
                 {
                     // update existing address
-                    _db.Entry<Address>(address).State = EntityState.Modified;
+                    db.Entry<Address>(address).State = EntityState.Modified;
                 }
             }
             //phones
             foreach (var phone in providerVm.PhoneNumbers) {
                 if (phone.PhoneNumberId == 0) {
                     // add new address
-                    _db.PhoneNumber.Add(phone);
+                    db.PhoneNumber.Add(phone);
 
                     //I think we need to add a new ProviderPhone row too.
                     
                 }
                 else {
                     // update existing address
-                    _db.Entry<PhoneNumber>(phone).State = EntityState.Modified;
+                    db.Entry<PhoneNumber>(phone).State = EntityState.Modified;
                 }
             }
 
-            _db.SaveChanges();
+            db.SaveChanges();
 
             return providerVm;
         }
 
         public void DeleteProvider(int providerId)
         {
-            var item = _db.Provider.Find(providerId);
+            using var db = _factory.CreateDbContext();
+            var item = db.Provider.Find(providerId);
 
             if (item == null) return;
-            _db.Provider.Remove(item);
-            _db.SaveChanges();
+            db.Provider.Remove(item);
+            db.SaveChanges();
 
         }
 
@@ -110,9 +117,10 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
 
         public List<ProviderAttributeViewModel> GetProviderAttributesByProviderId(int providerId, bool tracking = false)
         {
+            using var db = _factory.CreateDbContext();
             // get a list of attributes for a provider
-            var list = from p in _db.ProviderAttribute
-                       join a in _db.Attribute on p.AttributeId equals a.AttributeId
+            var list = from p in db.ProviderAttribute
+                       join a in db.Attribute on p.AttributeId equals a.AttributeId
                        where p.ProviderId == providerId
                        select new ProviderAttributeViewModel
                        {
@@ -127,26 +135,29 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
 
         public ProviderAttribute GetProviderAttribute(int id, bool tracking = false)
         {
+            using var db = _factory.CreateDbContext();
             // get a list of attributes for a provider
-            var item = _db.ProviderAttribute.Find(id);
+            var item = db.ProviderAttribute.Find(id);
 
             return item;
         }
 
         public ProviderAttribute AddProviderAttribute(ProviderAttribute item)
         {
-            _db.ProviderAttribute.Add(item);
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext();
+            db.ProviderAttribute.Add(item);
+            db.SaveChanges();
             return item;
         }
 
         public void DeleteProviderAttribute(int providerAttributeId)
         {
-            var item = _db.ProviderAttribute.Find(providerAttributeId);
+            using var db = _factory.CreateDbContext();
+            var item = db.ProviderAttribute.Find(providerAttributeId);
 
             if (item == null) return;
-            _db.ProviderAttribute.Remove(item);
-            _db.SaveChanges();
+            db.ProviderAttribute.Remove(item);
+            db.SaveChanges();
 
         }
 

@@ -10,7 +10,8 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
 
         public List<PhoneNumber> GetPhoneNumbersByProviderId(int providerId, bool tracking = false) {
             // get a list of Phones for a provider
-            var nums = from p in _db.PhoneNumber
+            using var db = _factory.CreateDbContext();
+            var nums = from p in db.PhoneNumber
                         where p.ProviderId == providerId
                         select p;
             return nums.ToList();
@@ -21,27 +22,33 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
         }
 
         public PhoneNumber GetPhoneNumber(int phoneNumberId, bool tracking) {
-            return tracking ? _db.PhoneNumber.Find(phoneNumberId) : _db.PhoneNumber.AsNoTracking().FirstOrDefault(item => item.PhoneNumberId == phoneNumberId);
+            using var db = _factory.CreateDbContext();
+            return tracking 
+                ? db.PhoneNumber.Find(phoneNumberId) 
+                : db.PhoneNumber.AsNoTracking().FirstOrDefault(item => item.PhoneNumberId == phoneNumberId);
         }
 
         public PhoneNumber AddPhoneNumber(PhoneNumber item) {
-            _db.PhoneNumber.Add(item);
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext(); 
+            db.PhoneNumber.Add(item);
+            db.SaveChanges();
             return item;
         }
 
         public PhoneNumber UpdatePhoneNumber(PhoneNumber phoneNumberId) {
-            _db.Entry(phoneNumberId).State = EntityState.Modified;
-            _db.SaveChanges();
+            using var db = _factory.CreateDbContext(); 
+            db.Entry(phoneNumberId).State = EntityState.Modified;
+            db.SaveChanges();
             return phoneNumberId;
         }
 
         public void DeletePhoneNumber(int phoneNumberId) {
-            var item = _db.PhoneNumber.Find(phoneNumberId);
+            using var db = _factory.CreateDbContext(); 
+            var item = db.PhoneNumber.Find(phoneNumberId);
 
             if (item == null) return;
-            _db.PhoneNumber.Remove(item);
-            _db.SaveChanges();
+            db.PhoneNumber.Remove(item);
+            db.SaveChanges();
         }
     }
 }

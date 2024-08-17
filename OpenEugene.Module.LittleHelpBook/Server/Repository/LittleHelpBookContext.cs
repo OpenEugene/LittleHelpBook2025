@@ -15,8 +15,7 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
         public virtual DbSet<PhoneNumber> PhoneNumber { get; set; }
         public virtual DbSet<Provider> Provider { get; set; }
         public virtual DbSet<ProviderAttribute> ProviderAttribute { get; set; }
-        public virtual DbSet<Models.LittleHelpBook> LittleHelpBook { get; set; }  // from template
-
+ 
         public LittleHelpBookContext(IDBContextDependencies DBContextDependencies) : base(DBContextDependencies)
         {
             // ContextBase handles multi-tenant database connections

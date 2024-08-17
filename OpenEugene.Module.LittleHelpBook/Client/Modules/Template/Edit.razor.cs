@@ -15,7 +15,7 @@ namespace OpenEugene.Module.Template
 {
     public partial class Edit: ModuleBase
     {
-		[Inject] public  ILittleHelpBookService LittleHelpBookService { get; set; }
+		[Inject] public  LittleHelpBookService LittleHelpBookService { get; set; }
 		[Inject] public  NavigationManager NavigationManager { get; set; }
 		[Inject] public IStringLocalizer<Edit> Localizer { get; set; }		
 

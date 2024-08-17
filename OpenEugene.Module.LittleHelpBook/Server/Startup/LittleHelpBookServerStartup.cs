@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Oqtane.Infrastructure;
 using OpenEugene.Module.LittleHelpBook.Repository;
-using OpenEugene.Module.LittleHelpBook.Services;
 
 namespace OpenEugene.Module.LittleHelpBook.Startup
 {
@@ -21,7 +20,7 @@ namespace OpenEugene.Module.LittleHelpBook.Startup
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ILittleHelpBookService, ServerLittleHelpBookService>();
+            //services.AddTransient<ILittleHelpBookService, ServerLittleHelpBookService>();
             services.AddDbContextFactory<LittleHelpBookContext>(opt => { }, ServiceLifetime.Transient);
         }
     }
