@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
+using Oqtane.Models;
 using Oqtane.Services;
 using Oqtane.Shared;
 using Oqtane.Themes;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace OpenEugene.Theme.LittleHelpBook
@@ -50,7 +52,11 @@ namespace OpenEugene.Theme.LittleHelpBook
             }
         }
 
-        MudTheme LittleHelpMudTheme = new MudTheme()
+        public override List<Resource> Resources => new() {
+            new Resource { ResourceType = ResourceType.Script, Url = "_content/MudBlazor/MudBlazor.min.js" }
+        };
+
+         MudTheme LittleHelpMudTheme = new MudTheme()
         {
             PaletteLight = new PaletteLight() {
             },

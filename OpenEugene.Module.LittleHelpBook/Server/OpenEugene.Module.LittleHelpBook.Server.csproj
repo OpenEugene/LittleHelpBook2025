@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
     <Product>OpenEugene.Module.LittleHelpBook</Product>
     <Authors>OpenEugene</Authors>
     <Company>OpenEugene</Company>
@@ -26,12 +26,19 @@
 		<PackageReference Include="MudBlazor" Version="7.6.0" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Shared\OpenEugene.Module.LittleHelpBook.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Shared\OpenEugene.Module.LittleHelpBook.Shared.csproj" />
+	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Oqtane.Server" Version="5.2.0" />
-    <PackageReference Include="Oqtane.Shared" Version="5.2.0" />
+    <Reference Include="Oqtane.Client">
+      <HintPath>..\..\oqtane.framework\Oqtane.Client\bin\Debug\net8.0\Oqtane.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Oqtane.Server">
+      <HintPath>..\..\oqtane.framework\Oqtane.Server\bin\Debug\net8.0\Oqtane.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Oqtane.Shared">
+      <HintPath>..\..\oqtane.framework\Oqtane.Shared\bin\Debug\net8.0\Oqtane.Shared.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

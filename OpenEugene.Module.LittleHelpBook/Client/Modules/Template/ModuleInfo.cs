@@ -9,9 +9,9 @@ namespace OpenEugene.Module.Template
         {
             Name = "Template",
             Description = "Template",
-            Version = "1.1.1",
+            Version = "1.1.2",
             ServerManagerType = "OpenEugene.Module.LittleHelpBook.Manager.LittleHelpBookManager, OpenEugene.Module.LittleHelpBook.Server.Oqtane",
-            ReleaseVersions = "1.1.1",
+            ReleaseVersions = "1.1.2",
             Dependencies = "OpenEugene.Module.LittleHelpBook.Shared.Oqtane,MudBlazor",
             PackageName = "OpenEugene.LittleHelpBook" 
         };

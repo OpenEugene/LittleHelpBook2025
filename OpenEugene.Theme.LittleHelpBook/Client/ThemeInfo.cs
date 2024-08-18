@@ -10,7 +10,7 @@ namespace OpenEugene.Theme.LittleHelpBook
         public Oqtane.Models.Theme Theme => new Oqtane.Models.Theme
         {
             Name = "OpenEugene LittleHelpBook",
-            Version = "1.1.1",
+            Version = "1.1.2",
             PackageName = "OpenEugene.Theme.LittleHelpBook",
             ThemeSettingsType = "OpenEugene.Theme.LittleHelpBook.ThemeSettings, OpenEugene.Theme.LittleHelpBook.Client.Oqtane",
             ContainerSettingsType = "OpenEugene.Theme.LittleHelpBook.ContainerSettings, OpenEugene.Theme.LittleHelpBook.Client.Oqtane",
@@ -30,7 +30,7 @@ namespace OpenEugene.Theme.LittleHelpBook
                 //MudBlazor
                 new Resource { ResourceType = ResourceType.Stylesheet, Url = "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" },
                 new Resource { ResourceType = ResourceType.Stylesheet, Url = "_content/MudBlazor/MudBlazor.min.css" },
-                new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Level=ResourceLevel.Site },
+                //new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Level=ResourceLevel.Site },
 
                 new Resource { ResourceType = ResourceType.Stylesheet, Url = "~/Theme.css"},
             }

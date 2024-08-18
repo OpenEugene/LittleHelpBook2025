@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<Version>1.1.1</Version>
+		<Version>1.1.2</Version>
 		<Authors>OpenEugene</Authors>
 		<Company>OpenEugene</Company>
 		<Description>the little help book</Description>
@@ -27,8 +27,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Oqtane.Client" Version="5.2.0" />
-		<PackageReference Include="Oqtane.Shared" Version="5.2.0" />
+	  <Reference Include="Oqtane.Client">
+	    <HintPath>..\..\oqtane.framework\Oqtane.Client\bin\Debug\net8.0\Oqtane.Client.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Oqtane.Shared">
+	    <HintPath>..\..\oqtane.framework\Oqtane.Shared\bin\Debug\net8.0\Oqtane.Shared.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 	<PropertyGroup>
