@@ -12,7 +12,7 @@ namespace OpenEugene.Module.Provider
             Name = "Provider",
             Description = "Providers",
             Version = "1.1.0",
-            ServerManagerType = "OE.Module.LHB.Manager.LHBManager, OE.Module.LHB.Server.Oqtane",
+            ServerManagerType = "OpenEugene.Module.LittleHelpBook.Manager.LittleHelpBookManager, OpenEugene.Module.LittleHelpBook.Server.Oqtane",
             ReleaseVersions = "1.1.0",
             Dependencies = "OpenEugene.Module.LittleHelpBook.Shared.Oqtane,MudBlazor",
             PackageName = "OpenEugene.LittleHelpBook"

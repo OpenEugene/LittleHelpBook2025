@@ -10,7 +10,7 @@ namespace OpenEugene.Theme.LittleHelpBook
         public Oqtane.Models.Theme Theme => new Oqtane.Models.Theme
         {
             Name = "OpenEugene LittleHelpBook",
-            Version = "1.1.2",
+            Version = "1.1.3",
             PackageName = "OpenEugene.Theme.LittleHelpBook",
             ThemeSettingsType = "OpenEugene.Theme.LittleHelpBook.ThemeSettings, OpenEugene.Theme.LittleHelpBook.Client.Oqtane",
             ContainerSettingsType = "OpenEugene.Theme.LittleHelpBook.ContainerSettings, OpenEugene.Theme.LittleHelpBook.Client.Oqtane",

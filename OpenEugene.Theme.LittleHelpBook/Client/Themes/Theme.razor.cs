@@ -52,9 +52,6 @@ namespace OpenEugene.Theme.LittleHelpBook
             }
         }
 
-        public override List<Resource> Resources => new() {
-            new Resource { ResourceType = ResourceType.Script, Url = "_content/MudBlazor/MudBlazor.min.js" }
-        };
 
          MudTheme LittleHelpMudTheme = new MudTheme()
         {
