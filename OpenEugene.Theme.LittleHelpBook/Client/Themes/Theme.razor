@@ -6,8 +6,10 @@
 @inherits ThemeBase
 
 <MudThemeProvider @ref=_mudThemeProvider @bind-IsDarkMode=_darkMode Theme="LittleHelpMudTheme" />
-<MudPopoverProvider />
+@* these are set in pages that need them
 <MudDialogProvider />
+<MudPopoverProvider />
+ *@
 <MudSnackbarProvider />
 
 <MudLayout>

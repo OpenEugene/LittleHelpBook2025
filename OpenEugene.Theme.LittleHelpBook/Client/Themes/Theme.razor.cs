@@ -55,9 +55,19 @@ namespace OpenEugene.Theme.LittleHelpBook
 
          MudTheme LittleHelpMudTheme = new MudTheme()
         {
+             ZIndex = new ZIndex()
+             {
+                 Drawer = 1000,
+                 AppBar = 1100,
+                 Dialog = 1200,
+                 Snackbar = 1300,
+                 Tooltip = 1400,
+                 Popover = 1500,                
+             },
             PaletteLight = new PaletteLight() {
             },
             PaletteDark = new PaletteDark() {
+                
             },
         };
     }

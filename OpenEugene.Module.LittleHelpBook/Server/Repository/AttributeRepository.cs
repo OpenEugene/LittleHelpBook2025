@@ -16,7 +16,7 @@ namespace OpenEugene.Module.LittleHelpBook.Repository
             using var db = _factory.CreateDbContext();
             var list = from a in db.Attribute.AsNoTracking()
                        select a;
-            return list;
+            return list.ToList();
         }
 
     }

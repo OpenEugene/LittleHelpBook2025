@@ -6,9 +6,9 @@
 @inject IStringLocalizer<OpenEugene.Module.Provider.Index> Localizer
 @inject IDialogService DialogService
 
-<MudDialog>
+<MudDialog @bind-Visible="@visible">
     <DialogContent>
-        <Address Addr="@addr"></Address>
+        <AddressEdit Addr="@addr"></AddressEdit>
     </DialogContent>
     <DialogActions>
         <MudButton Color="Color.Primary" OnClick="@(()=> AddAddr())">@Localizer["Save"]</MudButton>
@@ -19,12 +19,15 @@
  @code {
 
     private M.Address addr = new();
+    bool visible = true;
+
 
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     [Parameter] public int Id { get; set; }
 
     private void Back()
     {
+        visible = false;
         MudDialog.Cancel();
     }
 

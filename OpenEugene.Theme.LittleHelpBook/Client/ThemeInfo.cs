@@ -30,8 +30,7 @@ namespace OpenEugene.Theme.LittleHelpBook
                 //MudBlazor
                 new Resource { ResourceType = ResourceType.Stylesheet, Url = "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" },
                 new Resource { ResourceType = ResourceType.Stylesheet, Url = "_content/MudBlazor/MudBlazor.min.css" },
-                //new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Level=ResourceLevel.Site },
-
+                new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Level=ResourceLevel.Site,Location=ResourceLocation.Body },
                 new Resource { ResourceType = ResourceType.Stylesheet, Url = "~/Theme.css"},
             }
         };

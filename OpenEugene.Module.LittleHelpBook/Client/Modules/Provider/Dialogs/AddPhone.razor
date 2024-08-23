@@ -5,13 +5,13 @@
 @inject IStringLocalizer<OpenEugene.Module.Provider.Index> Localizer
 @inject NavigationManager NavigationManager
 
-<MudDialog>
+<MudDialog @bind-Visible="@visible">
     <DialogContent>
-        <PhoneNumber Phone="@_phone"></PhoneNumber>
+        <PhoneNumberEdit Phone="@_phone"></PhoneNumberEdit>
     </DialogContent>
     <DialogActions>
-        <MudButton Color="Color.Primary" OnClick="@(()=> AddPhoneNumber())">@Localizer["Save"]</MudButton>
-        <MudButton Color="Color.Secondary" OnClick="@(()=> Back())">@Localizer["Cancel"]</MudButton>
+        <MudButton Color="Color.Primary" OnClick="AddPhoneNumber">@Localizer["Save"]</MudButton>
+        <MudButton Color="Color.Secondary" OnClick="Back">@Localizer["Cancel"]</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -22,8 +22,11 @@
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     [Parameter] public int Id { get; set; }
 
+    bool visible = true;
+
     private void Back()
     {
+        visible = false;
         MudDialog.Cancel();
     }
 
@@ -31,6 +34,6 @@
     {
         _phone.ProviderId = Id;
         await PhoneNumberService.AddPhoneNumberAsync(_phone);
-        MudDialog.Close();
+        MudDialog.Close(DialogResult.Ok(true));
     }
 }

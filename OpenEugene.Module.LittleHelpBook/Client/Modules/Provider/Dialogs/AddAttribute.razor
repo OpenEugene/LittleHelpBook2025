@@ -6,7 +6,7 @@
 @inject NavigationManager NavigationManager
 @inject IStringLocalizer<OpenEugene.Module.Provider.Index> Localizer
 
-<MudDialog>
+<MudDialog @bind-Visible="@visible">
     <DialogContent>
         @if (_attributes != null)
         {
@@ -32,7 +32,7 @@
     </DialogContent>
     <DialogActions>
         <MudButton Color="Color.Primary" OnClick="@(()=> AddProviderAttribute())">Add</MudButton>
-        <MudButton Color="Color.Secondary" OnClick="@(()=> Back())">@Localizer["Cancel"]</MudButton>
+        <MudButton Color="Color.Secondary" OnClick="Back">@Localizer["Cancel"]</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -51,13 +51,16 @@
     private MudSelect<M.Attribute> _selectCategory;
 
     bool success;
+    bool visible = true;
+
     string[] errors = { };
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         await ReadData();
         _allAttributes = await AttributeService.GetAttributesAsync();
         ResetDropDowns();
+        visible = true;
     }
 
     private async Task ReadData()
@@ -98,11 +101,12 @@
             AttributeId = _selectedSubcategory?.AttributeId ?? _selectedCategory.AttributeId
         };
         await ProviderService.AddProviderAttribute(pa);
-        MudDialog.Close();
+        MudDialog.Close(DialogResult.Ok(true));
     }
 
     private void Back()
     {
+        visible = false;
         MudDialog.Cancel();
     }
 

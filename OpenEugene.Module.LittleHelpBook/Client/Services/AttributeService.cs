@@ -19,10 +19,17 @@ namespace OpenEugene.Module.LittleHelpBook.Services
 
         public async Task<List<Models.Attribute>> GetAttributesAsync()
         {
-            List<Models.Attribute> list = await GetJsonAsync<List<Models.Attribute>>($"{Apiurl}");
-            if (list != null)
+            try
             {
-                return list.OrderBy(item => item.Name).ToList();
+                List<Models.Attribute> list = await GetJsonAsync<List<Models.Attribute>>($"{Apiurl}");
+                if (list != null)
+                {
+                    return list.OrderBy(item => item.Name).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
             }
             return null;
         }

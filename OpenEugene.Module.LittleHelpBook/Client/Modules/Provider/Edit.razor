@@ -12,6 +12,13 @@
 
 @if (_model != null)
 {
+ 
+    <MudDialogProvider 
+        CloseButton="true"
+        BackdropClick="true"
+        CloseOnEscapeKey="true" />
+    <MudPopoverProvider />
+
     <EditForm @ref="form" Model="@_model"
               OnValidSubmit="OnValidSubmit"
               OnInvalidSubmit="OnInvalidSubmit">
@@ -197,8 +204,7 @@
     {
         var parameters = new DialogParameters<AddPhone>();
         parameters.Add(x => x.Id, _id);
-        var options = new DialogOptions { CloseOnEscapeKey = true };
-        var dialog = await DialogService.ShowAsync<AddPhone>("Add Phone Number", parameters, options);
+        var dialog = await DialogService.ShowAsync<AddPhone>("Add Phone Number", parameters);
         var result = await dialog.Result;
         if (!result.Canceled)
         {
