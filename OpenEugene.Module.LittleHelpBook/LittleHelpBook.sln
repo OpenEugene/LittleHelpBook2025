@@ -12,8 +12,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Module.LittleHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Module.LittleHelpBook.Package", "Package\OpenEugene.Module.LittleHelpBook.Package.csproj", "{C5CE512D-CBB7-4545-AF0F-9B6591A0C3A7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oqtane", "Oqtane", "{014AC644-C7F3-4C35-995D-001D9ABDFFAF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Client", "..\OpenEugene.Theme.LittleHelpBook\Client\OpenEugene.Theme.LittleHelpBook.Client.csproj", "{4F7B4CD6-25E4-48DA-8EA9-5A2A23BD2879}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Package", "..\OpenEugene.Theme.LittleHelpBook\Package\OpenEugene.Theme.LittleHelpBook.Package.csproj", "{86F94956-09AE-43E6-B8F1-5DFA9B0E7DB5}"
