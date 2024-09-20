@@ -11,9 +11,9 @@ namespace OpenEugene.Module.MudBlazorPlaceHolder
         {
             Name = "MudBlazorPlaceHolder",
             Description = "LHB",
-            Version = "1.0.0",
+            Version = "1.1.6",
             ServerManagerType = "OpenEugene.Module.LittleHelpBook.Manager.LittleHelpBookManager, OpenEugene.Module.LittleHelpBook.Server.Oqtane",
-            ReleaseVersions = "1.0.0",
+            ReleaseVersions = "1.1.6",
             Dependencies = "OpenEugene.Module.LittleHelpBook.Shared.Oqtane,MudBlazor",
             PackageName = "OpenEugene.LittleHelpBook",
             Resources = new List<Resource>()

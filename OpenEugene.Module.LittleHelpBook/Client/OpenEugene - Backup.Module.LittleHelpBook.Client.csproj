@@ -2,33 +2,28 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<Version>1.1.6</Version>
+		<Version>1.1.5</Version>
 		<Authors>OpenEugene</Authors>
 		<Company>OpenEugene</Company>
-		<Description>[Description]</Description>
-		<Product>OpenEugene.Theme.LittleHelpBook</Product>
+		<Description>LHB</Description>
+		<Product>OpenEugene.LittleHelpBook</Product>
 		<Copyright>OpenEugene</Copyright>
-		<AssemblyName>OpenEugene.Theme.LittleHelpBook.Client.Oqtane</AssemblyName>
+		<AssemblyName>OpenEugene.Module.LittleHelpBook.Client.Oqtane</AssemblyName>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Remove="wwwroot\_content\MudBlazor\MudBlazor.min.css" />
-	  <Content Remove="wwwroot\_content\MudBlazor\MudBlazor.min.js" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="wwwroot\_content\MudBlazor\MudBlazor.min.css" />
-	  <None Include="wwwroot\_content\MudBlazor\MudBlazor.min.js" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.7" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.7" />
-		<PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
 		<PackageReference Include="MudBlazor" Version="7.6.0" />
+		<PackageReference Include="System.Net.Http.Json" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Localization" Version="2.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Shared\OpenEugene.Module.LittleHelpBook.Shared.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
