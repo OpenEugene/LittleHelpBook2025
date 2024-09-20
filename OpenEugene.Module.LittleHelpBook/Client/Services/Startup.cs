@@ -9,6 +9,6 @@ namespace OpenEugene.Module.LittleHelpBook.Client.Services
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMudServices();
-        }
+    }
     }
 }

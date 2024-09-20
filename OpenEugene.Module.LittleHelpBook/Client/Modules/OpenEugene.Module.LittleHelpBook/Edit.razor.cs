@@ -8,14 +8,15 @@ using MudBlazor;
 using Oqtane.Models;
 using Oqtane.Modules;
 using Oqtane.Shared;
-using OpenEugene.Module.LittleHelpBook.Services;
-using Models = OpenEugene.Module.LittleHelpBook.Models;
 
-namespace OpenEugene.Module.Template
+using OpenEugene.Module.LittleHelpBook.Services;
+
+
+namespace OpenEugene.Module.LittleHelpBook
 {
     public partial class Edit: ModuleBase
     {
-		[Inject] public  LittleHelpBookService LittleHelpBookService { get; set; }
+		[Inject] public  ILittleHelpBookService LittleHelpBookService { get; set; }
 		[Inject] public  NavigationManager NavigationManager { get; set; }
 		[Inject] public IStringLocalizer<Edit> Localizer { get; set; }		
 
@@ -36,7 +37,7 @@ namespace OpenEugene.Module.Template
             new Resource { ResourceType = ResourceType.Stylesheet,  Url = "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" },
             new Resource { ResourceType = ResourceType.Stylesheet,  Url = "_content/MudBlazor/MudBlazor.min.css" },
             new Resource { ResourceType = ResourceType.Stylesheet,  Url = ModulePath() + "Module.css" },
-            new Resource { ResourceType = ResourceType.Script,      Url = "_content/MudBlazor/MudBlazor.min.js" },
+            new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Location = ResourceLocation.Body, Level = ResourceLevel.Site },
             new Resource { ResourceType = ResourceType.Script,      Url = ModulePath() + "Module.js" },
         };
 

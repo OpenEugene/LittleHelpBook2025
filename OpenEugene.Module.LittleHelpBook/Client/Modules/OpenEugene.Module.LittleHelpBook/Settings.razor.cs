@@ -9,7 +9,7 @@ using Oqtane.Models;
 using Oqtane.Shared;
 
 
-namespace OpenEugene.Module.Template
+namespace OpenEugene.Module.LittleHelpBook
 { 
     public partial class Settings: ModuleBase
     {
@@ -24,7 +24,7 @@ namespace OpenEugene.Module.Template
                 new Resource { ResourceType = ResourceType.Stylesheet,  Url = "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" },
                 new Resource { ResourceType = ResourceType.Stylesheet,  Url = "_content/MudBlazor/MudBlazor.min.css" },
                 new Resource { ResourceType = ResourceType.Stylesheet,  Url = ModulePath() + "Module.css" },
-                new Resource { ResourceType = ResourceType.Script,      Url = "_content/MudBlazor/MudBlazor.min.js" },
+                new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Location = ResourceLocation.Body, Level = ResourceLevel.Site },
                 new Resource { ResourceType = ResourceType.Script,      Url = ModulePath() + "Module.js" },
             };
         protected override async Task OnInitializedAsync()

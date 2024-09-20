@@ -11,7 +11,7 @@
 <MudPopoverProvider />
  *@
 <MudSnackbarProvider />
-
+<main role="main">
 <MudLayout>
     <MudAppBar Elevation="1">
         <MudIconButton Icon="@MudBlazor.Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
@@ -35,7 +35,7 @@
                              ToggledIcon="@MudBlazor.Icons.Material.Filled.WbSunny" />
     </MudDrawer>
     <MudMainContent>
-        <MudContainer id="content">
+        <MudContainer id="content" Class="content">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -120,3 +120,4 @@
         </MudContainer>
     </MudMainContent>
 </MudLayout>
+</main>

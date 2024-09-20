@@ -1,19 +1,7 @@
-/* little help book overrides */
-:root {
-    --bs-heading-color: var(--mud-palette-text-primary);
-}
-
-.mud-primary-text {
-    color: var(--mud-palette-text-primary) !important;
-}
-
-.mud-secondary-text {
-    color: var(--mud-palette-text-secondary) !important;
-}
 /* Oqtane Styles */
 
 body {
-    padding-top: 1rem;
+    padding-top: 7rem;
 }
 
 .div main {

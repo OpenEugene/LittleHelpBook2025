@@ -8,7 +8,7 @@ using Oqtane.Shared;
 
 namespace OpenEugene.Module.LittleHelpBook.Services
 {
-    public class LittleHelpBookService : ServiceBase, IService
+    public class LittleHelpBookService : ServiceBase, ILittleHelpBookService, IService
     {
         public LittleHelpBookService(IHttpClientFactory http, SiteState siteState) : base(http, siteState) { }
 

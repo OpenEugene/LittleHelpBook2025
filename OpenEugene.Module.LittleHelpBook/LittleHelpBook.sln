@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.10.35122.118
+VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oqtane.Server", "..\oqtane.framework\Oqtane.Server\Oqtane.Server.csproj", "{3AB6FCC9-EFEB-4C0E-A2CF-8103914C5196}"
 EndProject
@@ -12,9 +12,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Module.LittleHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Module.LittleHelpBook.Package", "Package\OpenEugene.Module.LittleHelpBook.Package.csproj", "{C5CE512D-CBB7-4545-AF0F-9B6591A0C3A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Client", "..\OpenEugene.Theme.LittleHelpBook\Client\OpenEugene.Theme.LittleHelpBook.Client.csproj", "{4F7B4CD6-25E4-48DA-8EA9-5A2A23BD2879}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Oqtane", "Oqtane", "{014AC644-C7F3-4C35-995D-001D9ABDFFAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Package", "..\OpenEugene.Theme.LittleHelpBook\Package\OpenEugene.Theme.LittleHelpBook.Package.csproj", "{86F94956-09AE-43E6-B8F1-5DFA9B0E7DB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Client", "..\OpenEugene.Theme.LittleHelpBook\Client\OpenEugene.Theme.LittleHelpBook.Client.csproj", "{8CED4C1F-328B-4A7E-BB55-E87422CE834E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Package", "..\OpenEugene.Theme.LittleHelpBook\Package\OpenEugene.Theme.LittleHelpBook.Package.csproj", "{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,14 +42,14 @@ Global
 		{C5CE512D-CBB7-4545-AF0F-9B6591A0C3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5CE512D-CBB7-4545-AF0F-9B6591A0C3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5CE512D-CBB7-4545-AF0F-9B6591A0C3A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F7B4CD6-25E4-48DA-8EA9-5A2A23BD2879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F7B4CD6-25E4-48DA-8EA9-5A2A23BD2879}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F7B4CD6-25E4-48DA-8EA9-5A2A23BD2879}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F7B4CD6-25E4-48DA-8EA9-5A2A23BD2879}.Release|Any CPU.Build.0 = Release|Any CPU
-		{86F94956-09AE-43E6-B8F1-5DFA9B0E7DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{86F94956-09AE-43E6-B8F1-5DFA9B0E7DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{86F94956-09AE-43E6-B8F1-5DFA9B0E7DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{86F94956-09AE-43E6-B8F1-5DFA9B0E7DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CED4C1F-328B-4A7E-BB55-E87422CE834E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CED4C1F-328B-4A7E-BB55-E87422CE834E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CED4C1F-328B-4A7E-BB55-E87422CE834E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CED4C1F-328B-4A7E-BB55-E87422CE834E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

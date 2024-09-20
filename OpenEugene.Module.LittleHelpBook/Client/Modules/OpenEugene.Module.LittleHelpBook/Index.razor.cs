@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 using Oqtane.Models;
 using Oqtane.Modules;
 using Oqtane.Shared;
-using Models = OpenEugene.Module.LittleHelpBook.Models;
 
 using OpenEugene.Module.LittleHelpBook.Services;
 
-namespace OpenEugene.Module.Template;
+namespace OpenEugene.Module.LittleHelpBook;
 
 public partial class Index : ModuleBase
 {
     List<Models.LittleHelpBook> _LittleHelpBooks;
 		
-    [Inject] public  LittleHelpBookService LittleHelpBookService { get; set; }
+    [Inject] public ILittleHelpBookService LittleHelpBookService { get; set; }
     [Inject] public  NavigationManager NavigationManager { get; set; }
     [Inject] public  IStringLocalizer<Index> Localizer { get; set; }
 	
@@ -26,7 +25,7 @@ public partial class Index : ModuleBase
         new Resource { ResourceType = ResourceType.Stylesheet,  Url = "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" },
         new Resource { ResourceType = ResourceType.Stylesheet,  Url = "_content/MudBlazor/MudBlazor.min.css" },
         new Resource { ResourceType = ResourceType.Stylesheet,  Url = ModulePath() + "Module.css" },
-        new Resource { ResourceType = ResourceType.Script,      Url = "_content/MudBlazor/MudBlazor.min.js" },
+        new Resource { ResourceType = ResourceType.Script,     Url = "_content/MudBlazor/MudBlazor.min.js", Location = ResourceLocation.Body, Level = ResourceLevel.Site },
         new Resource { ResourceType = ResourceType.Script,      Url = ModulePath() + "Module.js" },
     };	
     private bool IsLoaded;

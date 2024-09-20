@@ -3,17 +3,17 @@ using Oqtane.Modules;
 using Oqtane.Shared;
 using System.Collections.Generic;
 
-namespace OpenEugene.Module.Provider
+namespace OpenEugene.Module.MudBlazorPlaceHolder
 {
     public class ModuleInfo : IModule
     {
         public ModuleDefinition ModuleDefinition => new ModuleDefinition
         {
-            Name = "Provider",
-            Description = "Providers",
-            Version = "1.1.0",
+            Name = "MudBlazorPlaceHolder",
+            Description = "LHB",
+            Version = "1.0.0",
             ServerManagerType = "OpenEugene.Module.LittleHelpBook.Manager.LittleHelpBookManager, OpenEugene.Module.LittleHelpBook.Server.Oqtane",
-            ReleaseVersions = "1.1.0",
+            ReleaseVersions = "1.0.0",
             Dependencies = "OpenEugene.Module.LittleHelpBook.Shared.Oqtane,MudBlazor",
             PackageName = "OpenEugene.LittleHelpBook",
             Resources = new List<Resource>()
