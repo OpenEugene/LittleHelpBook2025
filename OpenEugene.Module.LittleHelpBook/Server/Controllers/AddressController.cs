@@ -10,6 +10,7 @@ using System.Net;
 using Oqtane.Models;
 using OpenEugene.Module.LittleHelpBook.Models;
 using OpenEugene.Module.LittleHelpBook.Repository;
+using OpenEugene.Module.LittleHelpBook.Shared;
 
 namespace OE.Module.LHB.Controllers
 {
@@ -25,6 +26,7 @@ namespace OE.Module.LHB.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public Address Post([FromBody] Address item)
         {
             if (ModelState.IsValid )
@@ -43,6 +45,7 @@ namespace OE.Module.LHB.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public void Delete(int id)
         {
             var item = _LittleHelpBookRepository.GetAddressByAddressId(id);
