@@ -10,7 +10,7 @@ using System.Net;
 using OpenEugene.Module.LittleHelpBook.ViewModels;
 using OpenEugene.Module.LittleHelpBook.Models;
 using OpenEugene.Module.LittleHelpBook.Repository;
-
+using OpenEugene.Module.LittleHelpBook.Shared;
 
 namespace OE.Module.LHB.Controllers
 {
@@ -70,6 +70,7 @@ namespace OE.Module.LHB.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public Provider Post([FromBody] Provider item)
         {
             if (ModelState.IsValid )
@@ -87,6 +88,7 @@ namespace OE.Module.LHB.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public Provider Put(int id, [FromBody] Provider item)
         {
             if (ModelState.IsValid && _LittleHelpBookRepository.GetProvider(item.ProviderId, false) != null)
@@ -105,6 +107,7 @@ namespace OE.Module.LHB.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("vm/{id}")]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public ProviderViewModel PutVm(int id, [FromBody] ProviderViewModel item)
         {
             if (ModelState.IsValid)
@@ -123,6 +126,7 @@ namespace OE.Module.LHB.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public void Delete(int id)
         {
             Provider item = _LittleHelpBookRepository.GetProvider(id);
@@ -140,6 +144,7 @@ namespace OE.Module.LHB.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public Address Post([FromBody] Address item)
         {
             if (ModelState.IsValid)
@@ -154,8 +159,10 @@ namespace OE.Module.LHB.Controllers
                 item = null;
             }
             return item;
-        } // POST api/<controller>
+        } 
+        // POST api/<controller>
         [HttpPost("ProviderAttribute")]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public ProviderAttribute Post([FromBody] ProviderAttribute item)
         {
             if (ModelState.IsValid)
@@ -175,6 +182,7 @@ namespace OE.Module.LHB.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("ProviderAttribute/{id}")]
+        [Authorize(Roles = LhbRoleNames.Editors)]
         public void DeleteProviderAttribute(int id)
         {
            var item = _LittleHelpBookRepository.GetProviderAttribute(id);

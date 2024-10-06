@@ -7,6 +7,8 @@ using Oqtane.Controllers;
 using System.Net;
 using OpenEugene.Module.LittleHelpBook.Models;
 using OpenEugene.Module.LittleHelpBook.Repository;
+using Microsoft.AspNetCore.Authorization;
+using OpenEugene.Module.LittleHelpBook.Shared;
 
 namespace OE.Module.LHB.Controllers;
 
@@ -19,6 +21,7 @@ public class PhoneNumberController : ModuleControllerBase
 
     // POST api/<controller>
     [HttpPost]
+    [Authorize(Roles = LhbRoleNames.Editors)]
     public PhoneNumber Post([FromBody] PhoneNumber item)
     {
         if (ModelState.IsValid)
@@ -38,6 +41,7 @@ public class PhoneNumberController : ModuleControllerBase
 
     // DELETE api/<controller>/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = LhbRoleNames.Editors)]
     public void Delete(int id)
     {
         var item = _LittleHelpBookRepository.GetPhoneNumberByPhoneNumberId(id);
