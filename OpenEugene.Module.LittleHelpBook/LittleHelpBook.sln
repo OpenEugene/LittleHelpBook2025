@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenEugene.Theme.LittleHelpBook.Package", "..\OpenEugene.Theme.LittleHelpBook\Package\OpenEugene.Theme.LittleHelpBook.Package.csproj", "{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenEugene.Specs.LittleHelpBook", "..\OpenEugene.Specs.LittleHelpBook\OpenEugene.Specs.LittleHelpBook.csproj", "{061CD2A1-AEBE-4C3A-8C3C-6D97FF0E9FFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF0AB95C-2FA7-4883-8170-8805EA0B28ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061CD2A1-AEBE-4C3A-8C3C-6D97FF0E9FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061CD2A1-AEBE-4C3A-8C3C-6D97FF0E9FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061CD2A1-AEBE-4C3A-8C3C-6D97FF0E9FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061CD2A1-AEBE-4C3A-8C3C-6D97FF0E9FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
