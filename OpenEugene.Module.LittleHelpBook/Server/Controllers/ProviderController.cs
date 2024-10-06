@@ -43,7 +43,6 @@ namespace OE.Module.LHB.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
-        [Authorize(Policy = PolicyNames.ViewModule)]
         public Provider Get(int id)
         {
             Provider item = _LittleHelpBookRepository.GetProvider(id);
@@ -52,7 +51,6 @@ namespace OE.Module.LHB.Controllers
 
         // GET api/<controller>/5
         [HttpGet("vm/{id}")]
-       // [Authorize(Policy = PolicyNames.ViewModule)]
         public ActionResult<ProviderViewModel> GetVM(int id)
         {
             var item = _LittleHelpBookRepository.GetProviderViewModel(id);
@@ -64,7 +62,6 @@ namespace OE.Module.LHB.Controllers
 
         // GET api/<controller>/5
         [HttpGet("ProviderAttributes/{id}")]
-        // [Authorize(Policy = PolicyNames.ViewModule)]
         public ActionResult<List<ProviderViewModel>> GetProviderAttributes(int id)
         {
             var item = _LittleHelpBookRepository.GetProviderAttributesByProviderId(id);
@@ -73,7 +70,6 @@ namespace OE.Module.LHB.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        [Authorize(Policy = PolicyNames.EditModule)]
         public Provider Post([FromBody] Provider item)
         {
             if (ModelState.IsValid )
@@ -91,7 +87,6 @@ namespace OE.Module.LHB.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        [Authorize(Policy = PolicyNames.EditModule)]
         public Provider Put(int id, [FromBody] Provider item)
         {
             if (ModelState.IsValid && _LittleHelpBookRepository.GetProvider(item.ProviderId, false) != null)
@@ -110,7 +105,6 @@ namespace OE.Module.LHB.Controllers
 
         // PUT api/<controller>/5
         [HttpPut("vm/{id}")]
-        [Authorize(Policy = PolicyNames.EditModule)]
         public ProviderViewModel PutVm(int id, [FromBody] ProviderViewModel item)
         {
             if (ModelState.IsValid)
@@ -129,7 +123,6 @@ namespace OE.Module.LHB.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        [Authorize(Policy = PolicyNames.EditModule)]
         public void Delete(int id)
         {
             Provider item = _LittleHelpBookRepository.GetProvider(id);
@@ -182,7 +175,6 @@ namespace OE.Module.LHB.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("ProviderAttribute/{id}")]
-        [Authorize(Policy = PolicyNames.EditModule)]
         public void DeleteProviderAttribute(int id)
         {
            var item = _LittleHelpBookRepository.GetProviderAttribute(id);
